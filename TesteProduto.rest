@@ -6,19 +6,34 @@ GET http://localhost:8000/produto/10 HTTP/1.1
 POST http://127.0.0.1:8000/produto/ HTTP/1.1
 content-type: application/json
 
+<<<<<<< HEAD
 {     
 "nome": "carvalho",
 "descricao": "num sei",
 "valor_unitario": "3"
+=======
+{   
+"nome" : "carvalho",
+"descricao" : "num sei",
+"valor_unitario" : "53",
+>>>>>>> 430094492490666a2ca7becdf88d84570500ece6
 }
 ### Verbo PUT – atualiza
 PUT http://127.0.0.1:8000/produto/2 HTTP/1.1
 content-type: application/json
 
+<<<<<<< HEAD
 {    
 "nome" : "testes",
 "descricao" : "num sei",
 "valor_unitario" : "5"
+=======
+{ 
+"nome" : "testes",
+"descricao" : "num sei",
+"valor_unitario" : "54",
+
+>>>>>>> 430094492490666a2ca7becdf88d84570500ece6
 }
 ### Verbo DELETE - excluir
 DELETE http://127.0.0.1:8000/produto/3 HTTP/1.1
