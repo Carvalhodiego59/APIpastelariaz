@@ -11,8 +11,13 @@ content-type: application/json
 "cpf" : "01923874656",
 "telefone" : "4859123894",
 "senha" : "digimon",
+<<<<<<< HEAD
+"dia_fiado" : "5",
+"compra_fiado" : "849"
+=======
 "dia fiado" : "5",
 "compra fiado" : "849"
+>>>>>>> 430094492490666a2ca7becdf88d84570500ece6
 }
 ### Verbo PUT – atualiza
 PUT http://127.0.0.1:8000/cliente/2 HTTP/1.1
@@ -23,8 +28,13 @@ content-type: application/json
 "cpf" : "12345548909",
 "telefone" : "4815151515",
 "senha" : "num sei",
+<<<<<<< HEAD
+"dia_fiado" : "1",
+"compra_fiado" : "849"
+=======
 "dia fiado" : "1",
 "compra fiado" : "849"
+>>>>>>> 430094492490666a2ca7becdf88d84570500ece6
 }
 ### Verbo DELETE - excluir
 DELETE http://127.0.0.1:8000/cliente/3 HTTP/1.1
