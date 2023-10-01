@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-class Funcionario(BaseModel):
+class Produto(BaseModel):
     id_funcionario: int = None
     nome: str
     valor_unitario: int
