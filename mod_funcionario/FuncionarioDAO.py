@@ -16,12 +16,12 @@ def get_funcionario(id: int):
 
 @router.post("/funcionario/", tags=["Funcionário"])
 def post_funcionario(f: Funcionario):
-    return {"msg": "post executado", "nome": f.nome, "cpf": f.cpf, "telefone": f.telefone }, 200
+    return {"msg": "post executado", "nome": f.nome, "cpf": f.cpf, "telefone": f.telefone, "matricula":f.matricula }, 200
 
 
 @router.put("/funcionario/{id}", tags=["Funcionário"])
 def put_funcionario(id: int, f: Funcionario):
-    return {"msg": "put executado", "id": id, "nome": f.nome, "cpf": f.cpf, "telefone": f.telefone}, 201
+    return {"msg": "put executado", "id": id, "nome": f.nome, "cpf": f.cpf, "telefone": f.telefone ,"matricula":f.matricula}, 201
 
 
 @router.delete("/funcionario/{id}", tags=["Funcionário"])
