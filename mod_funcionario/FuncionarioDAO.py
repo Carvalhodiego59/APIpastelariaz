@@ -56,8 +56,7 @@ def put_funcionario(id: int, corpo: Funcionario):
     try:
         session = db.Session()
 
-        dados = session.query(FuncionarioDB).filter(
-            FuncionarioDB.id_funcionario == id).one()
+        dados = session.query(FuncionarioDB).filter(FuncionarioDB.id_funcionario == id).one()
 
         dados.nome = corpo.nome
         dados.cpf = corpo.cpf
