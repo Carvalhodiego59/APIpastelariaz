@@ -1,5 +1,11 @@
 from fastapi import APIRouter
 
+# import da segurança
+from fastapi import Depends
+import security
+# dependências de forma global
+router = APIRouter( dependencies=[Depends(security.verify_token), Depends(security.verify_key)] )
+
 from mod_produto.Produto import Produto
 
 # import da persistência
@@ -10,7 +16,7 @@ router = APIRouter()
 
 # Criar os endpoints de Cliente: GET, POST, PUT, DELETE
 
-@router.get("/produto/", tags=["Produto"])
+@router.get("/produto/", tags=["Produto"],dependencies=[Depends(security.verify_token), Depends(security.verify_key)])
 def get_produto():
     try:
         session = db.Session()
