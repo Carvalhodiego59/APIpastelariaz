@@ -9,7 +9,7 @@ class ProdutoDB(db.Base):
     descricao = Column(CHAR, nullable=False)
     valor_unitario = Column(Integer, unique=True, nullable=False)
     def __init__(self, id_produto, nome, descricao, valor_unitario):
-        self.id_funcionario = id_produto
+        self.id_produto = id_produto
         self.nome = nome
         self.descricao = descricao
         self.valor_unitario = valor_unitario
