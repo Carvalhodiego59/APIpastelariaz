@@ -6,22 +6,29 @@ GET http://localhost:8000/produto/10 HTTP/1.1
 POST http://127.0.0.1:8000/produto/ HTTP/1.1
 content-type: application/json
 
+<<<<<<< HEAD:TesteProduto.rest
 <<<<<<< HEAD
+=======
+>>>>>>> 7acf009fb3062cf62278e6668042305400c3d277:Testes/TesteProduto.rest
 {     
 "nome": "carvalho",
 "descricao": "num sei",
 "valor_unitario": "3"
+<<<<<<< HEAD:TesteProduto.rest
 =======
 {   
 "nome" : "carvalho",
 "descricao" : "num sei",
 "valor_unitario" : "53",
 >>>>>>> 430094492490666a2ca7becdf88d84570500ece6
+=======
+>>>>>>> 7acf009fb3062cf62278e6668042305400c3d277:Testes/TesteProduto.rest
 }
 ### Verbo PUT – atualiza
 PUT http://127.0.0.1:8000/produto/2 HTTP/1.1
 content-type: application/json
 
+<<<<<<< HEAD:TesteProduto.rest
 <<<<<<< HEAD
 {    
 "nome" : "testes",
@@ -34,6 +41,12 @@ content-type: application/json
 "valor_unitario" : "54",
 
 >>>>>>> 430094492490666a2ca7becdf88d84570500ece6
+=======
+{    
+"nome" : "testes",
+"descricao" : "num sei",
+"valor_unitario" : "5"
+>>>>>>> 7acf009fb3062cf62278e6668042305400c3d277:Testes/TesteProduto.rest
 }
 ### Verbo DELETE - excluir
 DELETE http://127.0.0.1:8000/produto/3 HTTP/1.1
