@@ -3,8 +3,8 @@ from pydantic import BaseModel
 class Cliente(BaseModel):
     id_cliente: int = None
     nome: str
-    compra_fiado: int
     cpf: str
     telefone: str = None
-    dia_fiado: int
+    compra_fiado: bool = None
+    dia_fiado: int = None
     senha: str = None
