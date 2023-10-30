@@ -11,7 +11,7 @@ dotenv_file = find_dotenv()
 # Carrega o arquivo .env
 
 load_dotenv(dotenv_file)
-
+ 
 # Configurações da API
 HOST = os.getenv("HOST")
 PORT = os.getenv("PORT")
