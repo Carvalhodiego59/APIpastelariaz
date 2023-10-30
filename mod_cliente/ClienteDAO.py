@@ -15,7 +15,7 @@ router = APIRouter()
 
 # Criar os endpoints de Cliente: GET, POST, PUT, DELETE
 
-@router.get("/cliente/", tags=["Cliente"],dependencies=[Depends(security.verify_token), Depends(security.verify_key)])
+@router.get("/cliente/", tags=["Cliente"])
 def get_cliente():
     try:
         session = db.Session()
