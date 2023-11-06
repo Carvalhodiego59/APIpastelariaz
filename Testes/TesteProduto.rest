@@ -1,31 +1,39 @@
 ### Verbo GET – listar todos
-GET http://localhost:8000/produto/ HTTP/1.1
+GET http://localhost:8000/produto/1 HTTP/1.1
 x-token: CarvalhoToken
 x-key: DigimonKey
-### Verbo GET – listar todos
-curl -X 'GET' \
-'http://localhost:8000/produto/' \
--H 'accept: application/json' \
--H 'x-token: CarvalhoToken' \
--H 'x-key: DigimonKey'
-### Verbo GET – listar um
-GET http://localhost:8000/produto/10 HTTP/1.1
+
+# GET http://localhost:8000/produto/1 HTTP/1.1
+x-token: CarvalhoToken
+x-key: DigimonKey
+
 ### Verbo POST – adicionar
 POST http://127.0.0.1:8000/produto/ HTTP/1.1
 content-type: application/json
-{     
-"nome": "carvalho",
-"descricao": "num sei",
-"valor_unitario": "3"
+x-token: CarvalhoToken
+x-key: DigimonKey
+
+{
+    "nome" : "agua da serra",
+    "descricao" : "600ml",
+    "valor_unitario" : 6
 }
+
 ### Verbo PUT – atualiza
 PUT http://127.0.0.1:8000/produto/2 HTTP/1.1
 content-type: application/json
+x-token: CarvalhoToken
+x-key: DigimonKey
 
-{    
-"nome" : "testes",
-"descricao" : "num sei",
-"valor_unitario" : "5"
+{
+    "id": 1,
+    "nome" : "itubaina",
+    "descricao" : "600ml",
+    "valor_unitario" : 5
 }
+
 ### Verbo DELETE - excluir
-DELETE http://127.0.0.1:8000/produto/3 HTTP/1.1
+
+DELETE http://127.0.0.1:8000/produto/16 HTTP/1.1
+x-token: CarvalhoToken
+x-key: DigimonKey

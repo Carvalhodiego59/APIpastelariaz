@@ -1,25 +1,29 @@
-from fastapi import APIRouter, Depends
-import security
+from fastapi import APIRouter
 from mod_produto.Produto import Produto
-
 import db
 from mod_produto.ProdutoModel import ProdutoDB
+# import da segurança
+from fastapi import Depends
+import security
 
-router = APIRouter(dependencies=[Depends(security.verify_token), Depends(security.verify_key)])
+router = APIRouter( dependencies=[Depends(security.verify_token), Depends(security.verify_key)] )
 
-@router.get("/produto/", tags=["Produto"])
+# Criar as rotas/endpoints: GET, POST, PUT, DELETE
+
+@router.get("/produto/", tags=["Produtos"])
 def get_produto():
-    try:    
+    try:
         session = db.Session()
         dados = session.query(ProdutoDB).all()
         return dados, 200
+    
     except Exception as e:
-        return {"erro": str(e)}, 400
+        return {"erro:": str(e)}, 400
     finally:
         session.close()
 
-@router.get("/produto/{id}", tags=["Produto"])
-def get_produto_id(id: int):
+@router.get("/produto/{id}", tags=["Produtos"])
+def get_produto(id: int):
     try:
         session = db.Session()
         dados = session.query(ProdutoDB).filter(ProdutoDB.id_produto == id).all()
@@ -29,48 +33,49 @@ def get_produto_id(id: int):
     finally:
         session.close()
 
-@router.post("/produto/", tags=["Produto"])
-def post_produto(p: Produto):
+@router.post("/produto/", tags=["Produtos"])
+def post_produto(corpo: Produto):
     try:
         session = db.Session()
-        dados = ProdutoDB(None, p.nome, p.descricao, p.foto, p.valor_unitario)
+        dados = ProdutoDB(None, corpo.nome, corpo.descricao, corpo.foto, corpo.valor_unitario)
         session.add(dados)
         session.commit()
-        return {"id": dados.id_produto}, 200
+        return{"id": dados.id_produto}, 200
     except Exception as e:
-        session.rollback()
-        return {"erro": str(e)}, 400
+        return{"erro": str(e)}, 400
     finally:
         session.close()
 
-@router.put("/produto/{id}", tags=["Produto"])
-def put_produto(id: int, p: Produto):
+@router.put("/produto/{id}", tags=["Produtos"])
+def put_produto(id: int, corpo: Produto):
     try:
         session = db.Session()
         dados = session.query(ProdutoDB).filter(ProdutoDB.id_produto == id).one()
-        dados.nome = p.nome
-        dados.descricao = p.descricao
-        dados.foto = p.foto
-        dados.valor_unitario = p.valor_unitario
+        dados.nome = corpo.nome
+        dados.descricao = corpo.descricao
+        dados.foto = corpo.foto
+        dados.valor_unitario = corpo.valor_unitario
         session.add(dados)
         session.commit()
-        return {"id": dados.id_produto}, 200
+        return{"id": dados.id_produto}, 200
     except Exception as e:
         session.rollback()
         return {"erro": str(e)}, 400
     finally:
         session.close()
 
-@router.delete("/produto/{id}", tags=["Produto"])
+
+@router.delete("/produto/{id}", tags=["Produtos"])
 def delete_produto(id: int):
     try:
         session = db.Session()
         dados = session.query(ProdutoDB).filter(ProdutoDB.id_produto == id).one()
         session.delete(dados)
         session.commit()
-        return {"id": dados.id_produto, "msg": "Registro excluído com sucesso"}, 200
+        return{"id": dados.id_produto,
+               "Produto deletado": dados.nome}, 200
     except Exception as e:
         session.rollback()
-        return {"erro": str(e)}, 400
+        return{"erro": str(e)}, 400
     finally:
         session.close()
