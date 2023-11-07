@@ -1,5 +1,5 @@
 import db
-from sqlalchemy import Column, VARCHAR, CHAR, Integer, Boolean
+from sqlalchemy import Column, VARCHAR, CHAR, Integer
 
 # ORM
 
@@ -11,7 +11,7 @@ class ClienteDB(db.Base):
     nome = Column(VARCHAR(100), nullable=False)
     cpf = Column(CHAR(11), unique=True, nullable=False)
     telefone = Column(CHAR(11), nullable=False)
-    compra_fiado = Column(Boolean, nullable=False)
+    compra_fiado = Column(Integer, nullable=False)
     dia_fiado = Column(Integer, nullable=False)
     senha = Column(VARCHAR(200), nullable=False)
 
