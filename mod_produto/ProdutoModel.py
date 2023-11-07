@@ -1,16 +1,7 @@
 import db
-from sqlalchemy import (
-    Column,
-    INT,
-    SMALLINT,
-    VARCHAR,
-    CHAR,
-    BLOB,
-    DECIMAL,
-    String,
-    Float,
-    Integer,
-)
+from sqlalchemy import Column, VARCHAR, Integer, LargeBinary
+
+# ORM
 
 
 class ProdutoDB(db.Base):
@@ -18,13 +9,13 @@ class ProdutoDB(db.Base):
 
     id_produto = Column(Integer, primary_key=True, autoincrement=True, index=True)
     nome = Column(VARCHAR(100), nullable=False)
-    descricao = Column(VARCHAR(200), nullable=False)
-    foto = Column(BLOB, nullable=False)
-    valor_unitario = Column(DECIMAL(11, 2), nullable=False)  # decimal(11,2)
+    descricao = Column(VARCHAR(100), nullable=True)
+    foto = Column(LargeBinary, nullable=True)
+    valor_unit = Column(Integer, nullable=False)
 
-    def __init__(self, id_produto, nome, descricao, foto, valor_unitario):
+    def __init__(self, id_produto, nome, descricao, foto, valor_unit):
         self.id_produto = id_produto
         self.nome = nome
         self.descricao = descricao
         self.foto = foto
-        self.valor_unitario = valor_unitario
+        self.valor_unit = valor_unit
