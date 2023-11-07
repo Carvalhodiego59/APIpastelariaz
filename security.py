@@ -1,5 +1,4 @@
 from fastapi import Header, HTTPException
-
 from settings import X_TOKEN, X_KEY
 
 async def verify_token(x_token: str = Header()):
