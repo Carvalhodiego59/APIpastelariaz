@@ -25,3 +25,5 @@ if __name__ == "__main__":
     import uvicorn
     
     uvicorn.run('apiPastelaria:app', host=HOST, port=int(PORT), reload=RELOAD)
+
+    
